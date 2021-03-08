@@ -15,7 +15,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://cranky-haibt-9f7f48.netlify.app/)
 
 
 ## Getting Started
