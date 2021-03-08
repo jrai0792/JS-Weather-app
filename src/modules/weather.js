@@ -16,8 +16,6 @@ const Weather = (() => {
       city = document.getElementById('city-search').value;
     }
 
-    console.log(city);
-
     document.querySelector('form').reset();
     getWeather(city);
   };
@@ -31,7 +29,7 @@ const Weather = (() => {
       return response.json();
     })
     .then(function (response) {
-      console.log(response, response.name, response.main.temp, response.main.temp_min, response.main.temp_max, response.sys.country);
+      // console.log(response, response.name, response.main.temp, response.main.temp_min, response.main.temp_max, response.sys.country);
       publishWeather(response.name,response.sys.country,response.main.temp,response.weather[0].main);
     })
 
