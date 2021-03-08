@@ -13,9 +13,13 @@
       <h1 class="">JS Weather App</h1>
       <div class="form-container">
         <form class="city-form my-2 my-lg-0 d-flex">
-          <input class="form-control" type="search" placeholder="Enter the City Name" aria-label="Search" required>
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <input class="form-control" type="text" placeholder="Enter the City Name" name="city-search" id="city-search" required>
+          <button class="btn btn-outline-success" type="submit" id="search-btn">Search</button>
         </form>
+      </div>
+      <div class="weather-details" id="weather-details">
+        <h2 id="city-name"></h2>
+        <h4 id="temp"></h4>
       </div>
   </header>
   <main></main>

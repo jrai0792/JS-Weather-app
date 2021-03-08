@@ -47,7 +47,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_0__);\n\n\n//# sourceURL=webpack://js-weather-app/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _modules_weather__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/weather */ \"./src/modules/weather.js\");\n\n\n\n// Weather.getCity();\n\n\n//# sourceURL=webpack://js-weather-app/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/weather.js":
+/*!********************************!*\
+  !*** ./src/modules/weather.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\nconst Weather = (() => {\n\n  const key = `52016338d9f8fe348df731b7e220c063`;\n  const base = `https://api.openweathermap.org/data/2.5/weather`;\n\n  // let city = document.getElementById('city-search').value;\n  const btn = document.getElementById('search-btn');\n  const getCity = (e) => {\n    e.preventDefault();\n    let city = document.getElementById('city-search').value;\n    if(city === '' || city === undefined || city === null) {\n      city = 'Bangalore';\n    }else {\n      city = document.getElementById('city-search').value;\n    }\n\n    console.log(city);\n\n    document.querySelector('form').reset();\n    getWeather(city);\n  };\n\n  document.querySelector('form').addEventListener('submit',getCity);\n  \n\n  const getWeather = async function(city) {\n    await fetch(`${base}?q=${city}&appid=${key}`)\n    .then(function (response) {\n      return response.json();\n    })\n    .then(function (response) {\n      // console.log(response, response.name, response.main.temp, response.main.temp_min, response.main.temp_max, response.sys.country);\n      publishWeather(response.name,response.sys.country,response.main.temp);\n    })\n\n\n  }\n\n  const publishWeather = (cityname,country, temp) => {\n    const resultContainer = document.getElementById(\"weather-details\");\n    const cityName = document.getElementById(\"city-name\");\n    cityName.textContent = `${cityname.toUpperCase()} , ${country}`;\n    const tempT = document.getElementById(\"temp\");\n    tempT.textContent = `Temp : ${temp}`;\n    resultContainer.appendChild(cityName);\n    resultContainer.appendChild(tempT);\n\n  };\n\n    return {getCity, getWeather}\n\n})();\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Weather);\n\n//# sourceURL=webpack://js-weather-app/./src/modules/weather.js?");
 
 /***/ })
 
