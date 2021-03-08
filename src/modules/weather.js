@@ -6,35 +6,38 @@ const Weather = (() => {
   let tempDet;
 
   const tempT = document.getElementById('temp');
-  let tempCheckbox = document.getElementById('tempCheckbox').value;
 
   const kelvinToCelsius = (temp) => Math.round(temp - 273.15).toFixed(2);
+
+  const kelvinToFahrenheit = (temp) => Math.round(((temp - 273.15) * (9 / 5)) + 32).toFixed(2);
+
+  const tempSwitch = document.getElementById('tempCheckbox');
 
   const publishWeather = (cityname, country, temp, cloudDetails) => {
     const cityName = document.getElementById('city-name');
     cityName.textContent = `${cityname.toUpperCase()} , ${country}`;
     const dateDetails = document.getElementById('date-details');
     dateDetails.textContent = `${getDate.dateDetails()}`;
-    if(tempSwitch.checked) {
+    if (tempSwitch.checked) {
       tempT.textContent = `Temp : ${kelvinToFahrenheit(temp)}°F`;
-    }else {
+    } else {
       tempT.textContent = `Temp : ${kelvinToCelsius(temp)}°C`;
     }
-    
+
     const cloud = document.getElementById('cloud');
     cloud.textContent = `${cloudDetails}`;
-    if(cloudDetails === 'Haze') {
+    if (cloudDetails === 'Haze') {
       document.body.style.background = "url('.././dist/assests/app-bg.jpeg') no-repeat";
-      document.body.style.backgroundSize = "cover";
-    }else if (cloudDetails === 'Clear') {
+      document.body.style.backgroundSize = 'cover';
+    } else if (cloudDetails === 'Clear') {
       document.body.style.background = "url('.././dist/assests/sunny.jpeg') no-repeat";
-      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundSize = 'cover';
     } else if (cloudDetails === 'Clouds') {
       document.body.style.background = "url('.././dist/assests/cloud.jpeg') no-repeat";
-      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundSize = 'cover';
     } else {
       document.body.style.background = "url('.././dist/assests/app-bg.jpeg') no-repeat";
-      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundSize = 'cover';
     }
   };
 
@@ -49,8 +52,8 @@ const Weather = (() => {
         publishWeather(cityName, countryData, tempData, cloudData);
         tempDet = response.main.temp;
       })
-      .catch(error => {
-        alert("Please enter correct city name!!");
+      .catch(() => {
+        alert('Please enter correct city name!!');
       });
   };
 
@@ -61,7 +64,6 @@ const Weather = (() => {
       city = 'Bangalore';
     } else {
       city = document.getElementById('city-search').value;
-
     }
 
     document.querySelector('form').reset();
@@ -70,17 +72,11 @@ const Weather = (() => {
 
   document.querySelector('form').addEventListener('submit', getCity);
 
-  const kelvinToFahrenheit = (temp) => Math.round(((temp - 273.15) * (9 / 5)) + 32).toFixed(2);
-
-  const tempSwitch = document.getElementById('tempCheckbox');
-
   tempSwitch.addEventListener('change', () => {
     if (tempSwitch.checked) {
-      
       setTimeout(() => {
         tempT.textContent = `Temp : ${kelvinToFahrenheit(tempDet)} °F`;
       }, 150);
-      tempCheckbox = 'off';
     } else {
       setTimeout(() => {
         tempT.textContent = `Temp : ${kelvinToCelsius(tempDet)} °C`;

@@ -1,5 +1,5 @@
 const getDate = (() => {
-  const dateDetails =  () => {
+  const dateDetails = () => {
     const Months = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const Days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const date = new Date();
