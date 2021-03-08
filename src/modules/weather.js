@@ -1,3 +1,4 @@
+import getDate from './date';
 
 const Weather = (() => {
 
@@ -41,12 +42,18 @@ const Weather = (() => {
     const resultContainer = document.getElementById("weather-details");
     const cityName = document.getElementById("city-name");
     cityName.textContent = `${cityname.toUpperCase()} , ${country}`;
+    const dateDetails = document.getElementById("date-details");
+    dateDetails.textContent = `${getDate.dateDetails()}`;
     const tempT = document.getElementById("temp");
-    tempT.textContent = `Temp : ${temp}`;
-    resultContainer.appendChild(cityName);
-    resultContainer.appendChild(tempT);
+    tempT.textContent = `Temp : ${kelvinToCelsius(temp)}°C`;
+    // resultContainer.appendChild(cityName);
+    // resultContainer.appendChild(tempT);
 
   };
+
+  const kelvinToCelsius = (temp) => {
+    return Math.round(temp - 273.15).toFixed(2);
+  }
 
     return {getCity, getWeather}
 
