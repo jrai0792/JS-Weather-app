@@ -1,5 +1,5 @@
 body {
-  background-image: url('./assests/app-bg.jpeg');
+  background-image: url('../assests/app-bg.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
 }
