@@ -1,7 +1,7 @@
 import 'bootstrap';
 import Weather from './modules/weather';
 
-const defaultData = function () {
+const defaultData =  () => {
   Weather.getWeather('Bangalore');
 };
 

@@ -15,7 +15,6 @@ const Weather = (() => {
     cityName.textContent = `${cityname.toUpperCase()} , ${country}`;
     const dateDetails = document.getElementById('date-details');
     dateDetails.textContent = `${getDate.dateDetails()}`;
-    console.log(tempCheckbox);
     if(tempSwitch.checked) {
       tempT.textContent = `Temp : ${kelvinToFahrenheit(temp)}°F`;
     }else {
@@ -24,9 +23,22 @@ const Weather = (() => {
     
     const cloud = document.getElementById('cloud');
     cloud.textContent = `${cloudDetails}`;
+    if(cloudDetails === 'Haze') {
+      document.body.style.background = "url('.././dist/assests/app-bg.jpeg') no-repeat";
+      document.body.style.backgroundSize = "cover";
+    }else if (cloudDetails === 'Clear') {
+      document.body.style.background = "url('.././dist/assests/sunny.jpeg') no-repeat";
+      document.body.style.backgroundSize = "cover";
+    } else if (cloudDetails === 'Clouds') {
+      document.body.style.background = "url('.././dist/assests/cloud.jpeg') no-repeat";
+      document.body.style.backgroundSize = "cover";
+    } else {
+      document.body.style.background = "url('.././dist/assests/app-bg.jpeg') no-repeat";
+      document.body.style.backgroundSize = "cover";
+    }
   };
 
-  const getWeather = async function (city) {
+  const getWeather = async (city) => {
     await fetch(`${base}?q=${city}&appid=${key}`)
       .then((response) => response.json())
       .then((response) => {
@@ -36,6 +48,9 @@ const Weather = (() => {
         const cloudData = response.weather[0].main;
         publishWeather(cityName, countryData, tempData, cloudData);
         tempDet = response.main.temp;
+      })
+      .catch(error => {
+        alert("Please enter correct city name!!");
       });
   };
 
