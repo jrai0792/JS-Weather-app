@@ -4,8 +4,6 @@
 
 ![screenshot](./app-screenshot.png)
 
-Additional description about the project and its features.
-
 ## Built With
 
 - Javascript
@@ -20,11 +18,12 @@ Additional description about the project and its features.
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple steps.
 
-1. To clone the following repository, run - git clone https://github.com/jrai0792/JS-Weather-app
+1. To clone the repository, run - git clone https://github.com/jrai0792/JS-Weather-app
 2. Run cd JS-Weather-app
 3. Run npm install.
+4. Run the app on your local machine in the browser of your choice.
 
 ## Authors
 
@@ -32,7 +31,7 @@ To get a local copy up and running follow these simple example steps.
 
 - GitHub: [@JyotiRai](https://github.com/jrai0792)
 - Twitter: [@JyotiRai](https://twitter.com/jyotirai0792)
-- LinkedIn: [JyotiRai](https://linkedin.com/rai-jyoti)
+- LinkedIn: [JyotiRai](https://www.linkedin.com/in/rai-jyoti/)
 
 ## Show your support
 
@@ -40,4 +39,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](lic.url) licensed.
+This project is a solo project of Microverse student. All rights are reserved for Jyoti and Microverse.

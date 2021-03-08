@@ -6,7 +6,7 @@ const Weather = (() => {
   let tempDet;
 
   const tempT = document.getElementById('temp');
-
+  let tempCheckbox = document.getElementById('tempCheckbox').value;
 
   const kelvinToCelsius = (temp) => Math.round(temp - 273.15).toFixed(2);
 
@@ -15,7 +15,13 @@ const Weather = (() => {
     cityName.textContent = `${cityname.toUpperCase()} , ${country}`;
     const dateDetails = document.getElementById('date-details');
     dateDetails.textContent = `${getDate.dateDetails()}`;
-    tempT.textContent = `Temp : ${kelvinToCelsius(temp)}°C`;
+    console.log(tempCheckbox);
+    if(tempSwitch.checked) {
+      tempT.textContent = `Temp : ${kelvinToFahrenheit(temp)}°F`;
+    }else {
+      tempT.textContent = `Temp : ${kelvinToCelsius(temp)}°C`;
+    }
+    
     const cloud = document.getElementById('cloud');
     cloud.textContent = `${cloudDetails}`;
   };
@@ -40,6 +46,7 @@ const Weather = (() => {
       city = 'Bangalore';
     } else {
       city = document.getElementById('city-search').value;
+
     }
 
     document.querySelector('form').reset();
@@ -54,9 +61,11 @@ const Weather = (() => {
 
   tempSwitch.addEventListener('change', () => {
     if (tempSwitch.checked) {
+      
       setTimeout(() => {
         tempT.textContent = `Temp : ${kelvinToFahrenheit(tempDet)} °F`;
       }, 150);
+      tempCheckbox = 'off';
     } else {
       setTimeout(() => {
         tempT.textContent = `Temp : ${kelvinToCelsius(tempDet)} °C`;
