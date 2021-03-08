@@ -6,7 +6,7 @@ const Weather = (() => {
   const base = `https://api.openweathermap.org/data/2.5/weather`;
 
   const btn = document.getElementById('search-btn');
-
+  let tempDet;
   const getCity = (e) => {
     e.preventDefault();
     let city = document.getElementById('city-search').value;
@@ -29,12 +29,14 @@ const Weather = (() => {
       return response.json();
     })
     .then(function (response) {
-      // console.log(response, response.name, response.main.temp, response.main.temp_min, response.main.temp_max, response.sys.country);
       publishWeather(response.name,response.sys.country,response.main.temp,response.weather[0].main);
+      tempDet = response.main.temp;
     })
 
 
   }
+
+  const tempT = document.getElementById("temp");
 
   const publishWeather = (cityname,country, temp, cloudDetails) => {
     const resultContainer = document.getElementById("weather-details");
@@ -42,7 +44,6 @@ const Weather = (() => {
     cityName.textContent = `${cityname.toUpperCase()} , ${country}`;
     const dateDetails = document.getElementById("date-details");
     dateDetails.textContent = `${getDate.dateDetails()}`;
-    const tempT = document.getElementById("temp");
     tempT.textContent = `Temp : ${kelvinToCelsius(temp)}°C`;
     const cloud = document.getElementById("cloud");
     cloud.textContent = `${cloudDetails}`;
@@ -51,6 +52,25 @@ const Weather = (() => {
   const kelvinToCelsius = (temp) => {
     return Math.round(temp - 273.15).toFixed(2);
   }
+
+  const kelvinToFahrenheit = (temp) => {
+   
+    return Math.round(((temp-273.15)*9/5)+32).toFixed(2);
+  }
+
+  const tempSwitch = document.getElementById('tempCheckbox');
+
+  tempSwitch.addEventListener('change', () => {
+    if(tempSwitch.checked) {
+      setTimeout(() => {
+        tempT.textContent= `Temp : ${kelvinToFahrenheit(tempDet)} °F`;
+      }, 150)
+    }else {
+        setTimeout(() => {
+          tempT.textContent = `Temp : ${kelvinToCelsius(tempDet)} °C`;
+        },150)
+    }
+  });
 
     return {getCity, getWeather}
 
