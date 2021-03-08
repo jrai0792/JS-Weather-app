@@ -32,3 +32,13 @@ input {
   font-weight: bold;
   margin: 0 auto;
 }
+
+.weather-details {
+  font-size: 24px;
+  text-align: center;
+}
+
+h4{
+  font-size: 40px;
+  font-weight: 900;
+}
