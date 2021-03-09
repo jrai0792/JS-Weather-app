@@ -1,0 +1,54 @@
+body {
+  background-image: url('../assests/app-bg.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form-container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.city-form {
+  width: 100%;
+  justify-content: center;
+  position: relative;
+  left: 20%;
+}
+
+input {
+  width: 50%;
+  padding: 8px;
+  margin: 0 auto;
+}
+
+.btn {
+  width: 20%;
+  padding: 8px;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.weather-details {
+  font-size: 24px;
+  text-align: center;
+}
+
+h4{
+  font-size: 40px;
+  font-weight: 900;
+}
+
+
+#tempCheckbox {
+  width: 5%;
+  font-size: 24px;
+}
+
+.white-text {
+  color: #fff;
+}
