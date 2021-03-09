@@ -26,19 +26,19 @@ const Weather = (() => {
 
     const cloud = document.getElementById('cloud');
     cloud.textContent = `${cloudDetails}`;
-    if (cloudDetails === 'Haze') {
-      document.body.style.background = "url('../../dist/assests/app-bg.jpeg') no-repeat";
-      document.body.style.backgroundSize = 'cover';
-    } else if (cloudDetails === 'Clear') {
-      document.body.style.background = "url('../../dist/assests/sunny.jpeg') no-repeat";
-      document.body.style.backgroundSize = 'cover';
-    } else if (cloudDetails === 'Clouds') {
-      document.body.style.background = "url('../../dist/assests/cloud.jpeg') no-repeat";
-      document.body.style.backgroundSize = 'cover';
-    } else {
-      document.body.style.background = "url('../../dist/assests/app-bg.jpeg') no-repeat";
-      document.body.style.backgroundSize = 'cover';
-    }
+    // if (cloudDetails === 'Haze') {
+    //   document.body.style.background = "url('../../dist/assests/app-bg.jpeg') no-repeat";
+    //   document.body.style.backgroundSize = 'cover';
+    // } else if (cloudDetails === 'Clear') {
+    //   document.body.style.background = "url('../../dist/assests/sunny.jpeg') no-repeat";
+    //   document.body.style.backgroundSize = 'cover';
+    // } else if (cloudDetails === 'Clouds') {
+    //   document.body.style.background = "url('../../dist/assests/cloud.jpeg') no-repeat";
+    //   document.body.style.backgroundSize = 'cover';
+    // } else {
+    //   document.body.style.background = "url('../../dist/assests/app-bg.jpeg') no-repeat";
+    //   document.body.style.backgroundSize = 'cover';
+    // }
   };
 
   const getWeather = async (city) => {
